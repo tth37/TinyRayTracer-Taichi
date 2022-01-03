@@ -8,7 +8,6 @@ particles = ti.Vector.field(3, float, samples)
 @ti.func
 def random_in_unit_sphere():
     #this one is quite fast
-    theta = 2.0 * Pi * ti.random()
     phi = ti.acos((2.0 * ti.random()) - 1.0)#this two lines generate two spherical coordinate angles
     r = ti.pow(ti.random(), 1.0/3.0)#you can integrate for each spherical shell in the sphere to prove it
     return ti.Vector([r * ti.sin(phi) * ti.cos(theta), r * ti.sin(phi) * ti.sin(theta), r * ti.cos(phi)])
